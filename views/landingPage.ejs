@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Welcome</title>
+    <link href="https://fonts.googleapis.com/css?family=Manjari:100,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/landingPage.css">
+    <script src="https://kit.fontawesome.com/406b77ded1.js"></script>
+</head>
+<body>
+
+<div class="main-container">
+    <h1 class="ws-title">Nina's Insights</h1>
+    <h3 class="ws-desc">
+        Analyze a person's personality based off what they write using 
+        <a href="https://www.ibm.com/watson/services/personality-insights/" target="_blank">IBM's Watson Personality Insights AI</a> 
+    </h3>
+    <h2 class="ws-instruct">Choose a website to analyze a user or copy and paste a speech or write something yourself.</h2>
+    
+    <div class="icon-container">
+        <span class="icon twitter"><i class="fab fa-twitter"></i></span> 
+        <span class="icon reddit"><i class="fab fa-reddit"></i></span> 
+        <span class="icon keyboard"><i class="fas fa-keyboard"></i></span> 
+    </div>
+    
+    allow people to enter /u/
+    <form id="user-search-form" class="hide" action="" method="POST">
+        <input id="user-search-box" type="text" placeholder="" name="user_search" autocomplete="off">
+        <input id="user-search-btn" class="submit-btn" type="submit">
+    </form>
+    
+    <form id="personal-text" class="hide" action="/personal-text" method="post">
+        <textarea placeholder="Place your text here. Only I will judge." name="usertext" cols="50" rows="10"></textarea>
+        <input id="pt-btn" class="submit-btn" type="submit">
+    </form>
+
+    <script src="/landingPage.js"></script>
+</div>
+
+</body>
+</html>

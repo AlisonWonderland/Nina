@@ -1,0 +1,65 @@
+html, body {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    font-family: 'Manjari', times;
+}
+
+/* Change link color  */
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ws-title,
+.ws-desc,
+.ws-intruct {
+    text-align: center;
+}
+
+.ws-title {
+    font-size: 4.2rem;
+}
+
+.ws-desc {
+    font-weight: 100;
+    font-size: 2rem;
+}
+
+.icon {
+    font-size: 4.5rem;
+}
+
+.twitter {
+    color: #00aced;
+}
+
+.reddit {
+    color: #FF5700;
+}
+
+.keyboard {
+
+}
+
+.icon:hover {
+    cursor: pointer;
+}
+
+.hide {
+    display: none;
+}
+
+.test {
+    /* display: block; */
+}
