@@ -1,2 +1,7 @@
 # Don't track:
+
+# Folders
 node_modules/
+
+# Files
+config.js
