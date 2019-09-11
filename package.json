@@ -19,7 +19,9 @@
   "dependencies": {
     "ejs": "^2.6.2",
     "express": "^4.17.1",
+    "ibm-watson": "^4.4.0",
     "node-fetch": "^2.6.0",
+    "snoowrap": "^1.19.0",
     "twitter": "^1.7.1"
   }
 }

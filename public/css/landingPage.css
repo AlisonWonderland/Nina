@@ -5,6 +5,10 @@ html, body {
     font-family: 'Manjari', times;
 }
 
+body {
+    background: #faf7f0;
+}
+
 /* Change link color  */
 a {
     color: inherit;
