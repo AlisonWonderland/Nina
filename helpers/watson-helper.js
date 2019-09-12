@@ -1,7 +1,5 @@
 const PersonalityInsightsV3 = require('ibm-watson/personality-insights/v3');
-
-const config = require('../../config');
-
+const config = require('../config');
 const personalityInsights = new PersonalityInsightsV3(config.ibmCred);
 
 async function analyzeText(text) {
@@ -12,6 +10,7 @@ async function analyzeText(text) {
         raw_scores: true,
     };
 
+    // Will have to do something with this profile.
     personalityInsights.profile(profileParams)
         .then(profile => {
             console.log(JSON.stringify(profile, null, 2));

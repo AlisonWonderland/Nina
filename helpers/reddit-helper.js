@@ -1,25 +1,10 @@
 const snoowrap = require('snoowrap');
 const fetch = require('node-fetch');
 
-// This will need to change when you put it in helpers
-const config = require('../../config');
-const watson = require('./watson');
-
-
-// Move this to router.js and leave the rest here to move
-module.exports = (app) => {
-    app.post('/reddit-search', async (req,res) => {
-        const username = req.body.user_search;
-        const comments = await getRedditComments(username);
-        // watson needs to be included after its moved to helpers
-        watson.analyzeText(comments);
-        res.redirect('/');
-    })
-}
-
-// Helper functions
+const config = require('../config');
 
 const REDDIT_ACCESS_TOKEN_URL = 'https://www.reddit.com/api/v1/access_token';
+
 
 async function getRedditComments(username) {
     let snoo = await createSnoowrap();
@@ -28,9 +13,11 @@ async function getRedditComments(username) {
     return snoo.getUser(username).getComments()
         .then(commentsList => {
             let comments = "";
+
             for(let i = 0; i < commentsList.length; ++i) {
                 comments += commentsList[i].body;
             }
+
             return comments;
         });
 }
@@ -65,3 +52,5 @@ async function getRedditAccessToken() {
     // Could return just tokenData.access_token. But, this is useful for checking expiration.
     return tokenData;
 }
+
+module.exports = { getRedditComments };

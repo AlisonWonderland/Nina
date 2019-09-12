@@ -34,7 +34,7 @@ for(var i = 0; i < icons.length; ++i) {
 // Event Listener helper functions
 
 function displayForm(websiteName) {
-    userSearchForm.action = `/${websiteName}-search`;
+    userSearchForm.action = `/results/${websiteName}`;
     inputBox.placeholder = `Enter a ${websiteName} username`;
     personalTextBox.classList.add("hide");
     userSearchForm.classList.remove("hide");
