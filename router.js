@@ -17,14 +17,14 @@ module.exports = (app) => {
 
     app.post('/results/twitter', (req,res) => {
         const username = req.body.user_search;
-        twitter.getTweets(username);
-        // watson.analyzeText(comments);
+        const tweets = twitter.getTweets(username);
+        // watson.analyzeText(tweets);
         res.redirect('/');
     })
 
     app.post('/results/personal-text', (req,res) => {
         const usertext = req.body.usertext;
-        watson.analyzeText(usertext);
+        // watson.analyzeText(usertext);
         res.send(usertext);
     });
 }

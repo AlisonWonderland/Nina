@@ -10,7 +10,8 @@ TEXTAREA INPUT -->
 <!-- * Make IBM API work -->
 <!-- * Make reddit data work with IBM's API with the separate files. Probably will have to 'require' ibm code. -->
 <!-- * put reddit/twitter routes/functions in separate files. test it. MOVE FILES TO HELPERS FOLDER -->
-* For self text make sure the amount of words is 600. This will need to be done in client side code.
+<!-- * For self text make sure the amount of words is 600. This will need to be done in client side code. ADD WORD COUNT. ADD LITTLE MESSAGE UNDER TEXTAREA SAYING 600 IS THE MINIMUM NEED BY THE API TO BE ACCURATE. -->
+* Play with the limits for tweets and comments and check watson results.
 * Create new ejs page to load this data(prefered) or add loading animation.
 * Find ibm node package, use it.
 * Styles. *** USE LANDING PAGE CSS FILE FOR THE DATA PAGE ***

@@ -24,16 +24,23 @@
         <span class="icon keyboard"><i class="fas fa-keyboard"></i></span> 
     </div>
     
-    allow people to enter /u/
     <form id="user-search-form" class="hide" action="" method="POST">
         <input id="user-search-box" type="text" placeholder="" name="user_search" autocomplete="off">
         <input id="user-search-btn" class="submit-btn" type="submit">
     </form>
     
-    <form id="personal-text" class="hide" action="/results/personal-text" method="post">
-        <textarea placeholder="Place your text here. Only I will judge." name="usertext" cols="50" rows="10"></textarea>
+    <form id="text-area-container" class="hide" action="/results/personal-text" method="post">
+        <textarea placeholder="Place your text here. Only I will judge." name="usertext" cols="100" rows="15"></textarea>
         <input id="pt-btn" class="submit-btn" type="submit">
     </form>
+
+    <div id="pt-fyi" class="hide">
+        <p>Words: <span id="word-count"></span></p>
+        <p>
+            Note: 600 words are needed for the API to create an accurate personality profile.
+            Though you can still write less than 600 words.
+        </p>
+    </div>
 
     <script src="/landingPage.js"></script>
 </div>
