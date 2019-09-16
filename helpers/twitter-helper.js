@@ -3,21 +3,24 @@ const config = require('../config');
 
 
 function getTweets(username) {
-    let tweetParams = {
+    const tweetParams = {
         tweet_mode: 'extended', 
         screen_name: username,
-        count: 5, 
+        count: 100, // CHANGED THIS TO 100 FROM 5.
         include_rts: false
     };
 
-    let twitterClient = new Twitter(config.twitterCred);
-    twitterClient.get('statuses/user_timeline', tweetParams, (error, tweets, response) => {
+    const twitterClient = new Twitter(config.twitterCred);
+    let tweets = "";
+    tweets = twitterClient.get('statuses/user_timeline', tweetParams, (error, tweets, response) => {
         if(error) throw error;
 
         for(let i = 0; i < tweets.length; ++i) {
-            console.log(tweets[i].full_text);  // The favorites.
+            // console.log(tweets[i].full_text);  // The favorites.
+            return tweets[0];
         }
     });
+    console.log(tweets);
 }
 
 module.exports = { getTweets };

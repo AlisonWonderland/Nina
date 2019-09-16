@@ -1,0 +1,38 @@
+html, body {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    font-family: 'Manjari', times;
+}
+
+body {
+    background: #2C2C2C;
+    overflow-y: hidden;
+}
+
+.main-container {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    /* justify-content: center; */
+    align-items: center;
+}
+
+.error-msg {
+    display: block;
+    font-size: 3rem;
+    color: white;
+}
+
+.ghost-gif {
+    display: block;
+    height: 500px;
+    width: 450px;
+}
+
+.squint-gif {
+    display: block;
+    height: 500px;
+    width: 600px
+}

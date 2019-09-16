@@ -5,6 +5,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/public/html'));
 app.use(express.static(__dirname + '/public/css'));
 app.use(express.static(__dirname + '/public/js'));
+app.use(express.static(__dirname + '/public/images'));
 app.set("view engine", "ejs");
 
 // File with API keys in it

@@ -6,32 +6,6 @@ const config = require('../config');
 const REDDIT_ACCESS_TOKEN_URL = 'https://www.reddit.com/api/v1/access_token';
 
 
-async function getRedditComments(username) {
-    let snoo = await createSnoowrap();
-
-    // think about the limit
-    return snoo.getUser(username).getComments()
-        .then(commentsList => {
-            let comments = "";
-
-            for(let i = 0; i < commentsList.length; ++i) {
-                comments += commentsList[i].body;
-            }
-
-            return comments;
-        });
-}
-
-async function createSnoowrap() {
-    let tokenData = await getRedditAccessToken();
-    
-    return new snoowrap({
-        userAgent: 'Nina',
-        accessToken: tokenData.access_token
-    });
-
-}
-
 async function getRedditAccessToken() {
     const  REDDIT_CLIENT_ID  = config.redditCred.client_id;
     const REDDIT_CLIENT_SECRET = config.redditCred.client_secret;
@@ -51,6 +25,34 @@ async function getRedditAccessToken() {
 
     // Could return just tokenData.access_token. But, this is useful for checking expiration.
     return tokenData;
+}
+
+async function createSnoowrap() {
+    let tokenData = await getRedditAccessToken();
+    
+    return new snoowrap({
+        userAgent: 'Nina',
+        accessToken: tokenData.access_token
+    });
+
+}
+
+async function getRedditComments(username) {
+    let snoo = await createSnoowrap();
+
+    // think about the limit
+    return snoo.getUser(username).getComments({limit: 100})
+        .then(commentsList => {
+            let comments = "";
+            for(let i = 0; i < commentsList.length; ++i) {
+                comments += commentsList[i].body;
+            }
+
+            return comments;
+        })
+        .catch(err => {
+            return new Error(err.error.error + ' '  +err.error.message);
+        })
 }
 
 module.exports = { getRedditComments };

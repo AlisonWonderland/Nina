@@ -1,8 +1,11 @@
 const PersonalityInsightsV3 = require('ibm-watson/personality-insights/v3');
+const PersonalityTextSummaries = require('personality-text-summary');
+
 const config = require('../config');
 const personalityInsights = new PersonalityInsightsV3(config.ibmCred);
+const v3EnglishTextSummaries = new PersonalityTextSummaries({ locale: 'en', version: 'v3' });
 
-async function analyzeText(text) {
+function createProfile(text) {
     const profileParams = {
         content: text,
         content_type: 'text/plain',
@@ -10,15 +13,26 @@ async function analyzeText(text) {
         raw_scores: true,
     };
 
-    // Will have to do something with this profile.
-    personalityInsights.profile(profileParams)
+    return personalityInsights.profile(profileParams)
         .then(profile => {
-            console.log(JSON.stringify(profile, null, 2));
+            return profile;
         })
         .catch(err => {
             console.log('error:', err);
+            reject(err);
         });
 
 }
 
-exports.analyzeText = analyzeText;
+async function createPortrait(text, username) {
+    const profile = await createProfile(text);
+    let portrait = {};
+
+    console.log(profile);
+    portrait.username = username;
+    portrait.summary = v3EnglishTextSummaries.getSummary(profile);
+
+    return portrait;
+}
+
+exports.createPortrait = createPortrait;
