@@ -13,16 +13,24 @@
     <p> <%= username %> </p>
     <p> <%= summary %> </p>
     <h1 class="ws-title">PERCENTILES</h1>
-    <div class="dropdown">
-        <button>Dropdown</button>
-        <div id="myDropdown" class="dropdown-content">
-            <a href="#">Link 1</a>
-            <a href="#">Link 2</a>
-            <a href="#">Link 3</a>
+
+    <!-- Semicolons matter btw when initializing variables -->
+    <% for(let i = 0; i < personalities.length; ++i) { %>
+        <div class="big5-trait">
+            <div class="drop-btn"> <%= personalities[i].name %> </div>
+            <div class="trait-children hide">
+                <% for(let j = 0; j < personalities[i].children.length; ++j) { %>
+                    <div> <%= personalities[i].children[j].name %> </div>
+                <% } %>
+            </div>
+            <hr>
         </div>
-    </div>
+    <% } %>
+    
 </div>
 
-<script src="results.js"></script>
+
+<!-- Maybe rename to dropdown -->
+<script src="/results.js"></script>
 </body>
 </html>

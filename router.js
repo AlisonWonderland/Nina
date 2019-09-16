@@ -9,8 +9,8 @@ module.exports = (app) => {
         res.render('landingPage');
     });   
 
-    app.get('/error', (req, res) => {
-        res.render('error', {error_msg: '404'})
+    app.get('/results', (req, res) => {
+        res.render('results', {username: 'tset', summary: 'Summary'})
     })
 
     app.post('/results/reddit', redditorAnalysis);

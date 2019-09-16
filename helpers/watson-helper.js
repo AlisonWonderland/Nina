@@ -28,9 +28,9 @@ async function createPortrait(text, username) {
     const profile = await createProfile(text);
     let portrait = {};
 
-    console.log(profile);
     portrait.username = username;
     portrait.summary = v3EnglishTextSummaries.getSummary(profile);
+    portrait.personalities = profile.personality;
 
     return portrait;
 }
