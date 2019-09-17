@@ -35,7 +35,6 @@ module.exports = (app) => {
 
 async function redditorAnalysis(req, res) {
     const username = req.body.user_search;
-    // v1
     const comments = await reddit.getRedditComments(username);
 
     if(comments instanceof Error) {

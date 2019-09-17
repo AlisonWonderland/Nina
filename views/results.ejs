@@ -15,18 +15,18 @@
     <h1 class="ws-title">PERCENTILES</h1>
 
     <!-- Semicolons matter btw when initializing variables -->
-    <% for(let i = 0; i < personalities.length; ++i) { %>
+    <% for(let i = 0; i < big5Traits.length; ++i) { %>
         <div class="big5-trait">
-            <div class="drop-btn"> <%= personalities[i].name %> </div>
+            <div class="drop-btn"> <%= big5Traits[i].name %> </div>
             <div class="trait-children hide">
-                <% for(let j = 0; j < personalities[i].children.length; ++j) { %>
-                    <div> <%= personalities[i].children[j].name %> </div>
+                <% for(let j = 0; j < big5Traits[i].children.length; ++j) { %>
+                    <div> <%= big5Traits[i].children[j].name %> </div>
                 <% } %>
             </div>
             <hr>
         </div>
     <% } %>
-    
+
 </div>
 
 
