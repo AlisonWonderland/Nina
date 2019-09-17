@@ -1,31 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Portrait</title>
+    <title>Nina's Portrait</title>
     <% include partials/header %>
     <link rel="stylesheet" href="/results.css">
+    <script src="https://kit.fontawesome.com/406b77ded1.js"></script>
 </head>
 <body>
 
 <div class="main-container">
-    <h1 class="ws-title">Analysis Results:</h1>
-    <h1 class="ws-title">SUMMARY</h1>
+    <h1 class="ws-title">Nina's results:</h1>
+    <h2 class="ws-title">SUMMARY</h2>
     <p> <%= username %> </p>
-    <p> <%= summary %> </p>
-    <h1 class="ws-title">PERCENTILES</h1>
+    <div class="summary-container">
+        <p> <%= summary %> </p>
+    </div>
+    <h2 class="ws-title">PERCENTILES</h2>
 
-    <!-- Semicolons matter btw when initializing variables -->
-    <% for(let i = 0; i < big5Traits.length; ++i) { %>
-        <div class="big5-trait">
-            <div class="drop-btn"> <%= big5Traits[i].name %> </div>
-            <div class="trait-children hide">
-                <% for(let j = 0; j < big5Traits[i].children.length; ++j) { %>
-                    <div> <%= big5Traits[i].children[j].name %> </div>
-                <% } %>
-            </div>
-            <hr>
+    <div class="traits-container">
+        <div class="trait-container" id="personality-traits">
+            <h3 class="column-title">Personality traits</h3>
+            <!-- Semicolons matter btw when initializing variables -->
+            <% for(let i = 0; i < big5Traits.length; ++i) { %>
+                <div class="trait big5-trait">
+                    <div class="dropdown"> <%= big5Traits[i].name %> <i class="fas fa-angle-down"></i> </div>
+                    <div class="sub-trait hide">
+                        <% for(let j = 0; j < big5Traits[i].children.length; ++j) { %>
+                            <div> <%= big5Traits[i].children[j].name %> </div>
+                        <% } %>
+                    </div>
+                    <!-- maybe get rid of last hr -->
+                    <hr>
+                </div>
+            <% } %>
         </div>
-    <% } %>
+
+        <div class="trait-container" id="needs">
+            <h3 class="column-title">Needs</h3>
+            <% for(let i = 0; i < needs.length; ++i) { %>
+                <div class="trait">
+                    <div> <%= needs[i].name %> </div>
+                    <hr>
+                </div>
+            <% } %>
+        </div>
+
+        <div class="trait-container" id="values">
+            <h3 class="column-title">Values</h3>
+            <% for(let i = 0; i < values.length; ++i) { %>
+                <div class="trait">
+                    <div> <%= values[i].name %> </div>
+                    <hr>
+                </div>
+            <% } %>
+        </div>
+    </div>
 
 </div>
 

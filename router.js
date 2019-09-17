@@ -44,7 +44,7 @@ async function redditorAnalysis(req, res) {
 
     else {
         const personalityPortrait = await watson.createPortrait(comments, username);
-        console.log(personalityPortrait);
+        // console.log(personalityPortrait);
         res.render('results', personalityPortrait);
     }
 }

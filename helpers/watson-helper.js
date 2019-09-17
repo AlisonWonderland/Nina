@@ -5,6 +5,35 @@ const config = require('../config');
 const personalityInsights = new PersonalityInsightsV3(config.ibmCred);
 const v3EnglishTextSummaries = new PersonalityTextSummaries({ locale: 'en', version: 'v3' });
 
+
+/* SUGGESTIONS:
+    Round percentile to whole numbers/ w/o the decimal.Math.round(..percentile * 100);
+    Use one format and one sort function
+*/
+
+function formatNeedsOrValues(profile, characteristic) {
+    const charTraits = profile[characteristic];
+    for(let i = 0; i < charTraits.length; ++i) {
+        charTraits[i].percentile = Math.round(charTraits[i].percentile * 10000) / 100;
+    }
+
+    return charTraits;
+}
+
+function sortNeedsOrValues(charTraits) {
+    for(let i = 0; i < charTraits.length - 1; ++i) {
+        for(let j = i + 1; j < charTraits.length; ++j) {
+            if(charTraits[i].percentile < charTraits[j].percentile) {
+                let temp = charTraits[i];
+                charTraits[i] = charTraits[j];
+                charTraits[j] = temp;
+            }
+        }
+    }
+
+    return charTraits;
+}
+
 function formatTraits(big5Traits) {
     for(let i = 0; i < big5Traits.length; ++i) {
         big5Traits[i].percentile = Math.round(big5Traits[i].percentile * 10000) / 100;
@@ -73,11 +102,14 @@ async function createPortrait(text, username) {
 
     portrait.username = username;
     portrait.summary = v3EnglishTextSummaries.getSummary(profile);
-    
     portrait.big5Traits = sortTraits(formatTraits(profile.personality));
+    portrait.needs = sortNeedsOrValues(formatNeedsOrValues(profile, 'needs'));
+    portrait.values = sortNeedsOrValues(formatNeedsOrValues(profile, 'values'));
 
-    console.log("+++++++++++++++++Children+++++++++++++++++++++++");
-    console.log(portrait.big5Traits[0].children);
+    // console.log("------------NEEDS---------------");
+    // console.log(portrait.needs);
+    // console.log("------------VALUES---------------");
+    // console.log(portrait.values);
 
     return portrait;
 }

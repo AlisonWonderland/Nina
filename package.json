@@ -22,6 +22,7 @@
     "ibm-watson": "^4.4.0",
     "node-fetch": "^2.6.0",
     "personality-text-summary": "^2.2.0",
+    "request": "^2.88.0",
     "snoowrap": "^1.19.0",
     "twitter": "^1.7.1"
   }
