@@ -21,15 +21,15 @@ TEXTAREA INPUT -->
 <!-- * Find ibm node package, use it. -->
 * add error handling for: user not found, etc. Maybe just print out the error message. Need twitter(invalid username) and watson(no comments)
 * Styles.
-* Responsiveness. sockets???
-* rename routes
+<!-- * Responsiveness. sockets??? Probably not. -->
+<!-- * rename routes -->
 * add a footer linking to the source code/github
 
 ## Notes 
 
 
 ### Todo later 
-* Get new background color for landing
+<!-- * Get new background color for landing -->
 ### Refactoring ideas.
 
 

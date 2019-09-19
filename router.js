@@ -9,10 +9,6 @@ module.exports = (app) => {
         res.render('landingPage');
     });   
 
-    app.get('/results', (req, res) => {
-        res.render('results', {username: 'tset', summary: 'Summary'})
-    })
-
     app.post('/results/reddit', redditorAnalysis);
 
     app.post('/results/twitter', (req,res) => {

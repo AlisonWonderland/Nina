@@ -3,12 +3,18 @@ const userSearchForm = document.getElementById("user-search-form");
 const inputBox = document.getElementById("user-search-box");
 const personalTextArea = document.getElementById("text-area-container");
 const textarea = document.getElementsByTagName("textarea")[0];
-const personalTextFYI = document.getElementById("pt-fyi");
+// rename to wordcount
+const wordCountDiv = document.getElementById("word-count-div");
 const wordCount = document.getElementById("word-count");
 
 
 function wordCounter() {
     let text = textarea.value;
+
+    if(textarea.value === '') {
+        wordCount.textContent = 0;
+        return;
+    }
 
     const regex = /\s+/gi;
     const wordCountVal = text.trim().replace(regex, ' ').split(' ').length;
@@ -36,8 +42,9 @@ for(let i = 0; i < icons.length; ++i) {
         }
         else if(this.classList.contains("keyboard")) {
             userSearchForm.classList.add("hide");
-            personalTextFYI.classList.remove("hide");
+            wordCountDiv.classList.remove("hide");
             personalTextArea.classList.remove("hide");
+            wordCounter();
         }
     });
 }
@@ -48,6 +55,6 @@ function editForm(websiteName) {
     userSearchForm.action = `/results/${websiteName}`;
     inputBox.placeholder = `Enter a ${websiteName} username`;
     personalTextArea.classList.add("hide");
-    personalTextFYI.classList.add("hide");
+    wordCountDiv.classList.add("hide");
     userSearchForm.classList.remove("hide");
 }

@@ -6,10 +6,11 @@ html, body {
 }
 
 body {
-    background: #feffae;
+    background: rgb(245,241,241);
+    background: linear-gradient(360deg, rgba(245,241,241,1) 0%, rgba(246,246,246,1) 100%, rgba(255,255,255,1) 100%);
+
 }
 
-/* Change link color  */
 a {
     color: #4677ff;
     text-decoration: none;
@@ -19,7 +20,24 @@ a:hover {
     text-decoration: underline;
 }
 
+#brain-pic {
+    width: 125px;
+    height: 125px;
+}
+
+#text-area-container {
+    margin-top: 10px;
+}
+
+/* // rename to wordcount */
+#word-count-div {
+    width: 400px;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
 .main-container {
+    margin: 0px 250px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -32,10 +50,12 @@ a:hover {
 }
 
 .ws-title {
+    margin-bottom: 30px;
     font-size: 4.2rem;
 }
 
 .ws-desc {
+    margin-bottom: 20px;
     font-weight: 100;
     font-size: 2rem;
 }
@@ -62,14 +82,4 @@ a:hover {
 
 .hide {
     display: none;
-}
-
-#text-area-container {
-    margin-top: 10px;
-}
-
-#pt-fyi {
-    width: 800px;
-    font-size: 1.5rem;
-    text-align: center;
 }

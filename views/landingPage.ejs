@@ -9,13 +9,18 @@
 <body>
 
 <div class="main-container">
-    <h1>include icon here?</h1>
+    <!-- <h1>include icon here?</h1> -->
+    <!-- <img id="brain-pic" src="/brain.png" alt="ai brain" title="ai brain"> -->
     <h1 class="ws-title">Nina's Insights</h1>
+    <img id="brain-pic" src="/ai.png" alt="ai brain" title="ai brain">
+    
     <h3 class="ws-desc">
-        Analyze a person's personality based off what they write using 
-        <a href="https://www.ibm.com/watson/services/personality-insights/" target="_blank">IBM's Watson Personality Insights AI</a> 
+        Analyze a person's personality based off what they write online using 
+        <a href="https://www.ibm.com/watson/services/personality-insights/" target="_blank">IBM's Watson Personality Insights AI</a>.
+        You can also write something yourself. <br> Note that the service needs a minimum of 100 words to work.
     </h3>
-    <h2 class="ws-instruct">Choose a website to analyze a user or copy and paste a speech or write something yourself.</h2>
+
+    <!-- <h3 class="ws-desc">Note that the service needs a minimum of 100 words to work.</h3> -->
     
     <h2 class="ws-instruct">Click an icon below to start</h2>
 
@@ -35,12 +40,9 @@
         <input id="pt-btn" class="submit-btn" type="submit" value="Analyze">
     </form>
 
-    <div id="pt-fyi" class="hide">
+    <!-- // rename to wordcount -->
+    <div id="word-count-div" class="hide">
         <p>Words: <span id="word-count"></span></p>
-        <p>
-            Note: 600 words are needed for the API to create an accurate personality profile.
-            Though you can still write less than 600 words.
-        </p>
     </div>
 
     <script src="/landingPage.js"></script>

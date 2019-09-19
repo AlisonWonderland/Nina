@@ -6,39 +6,75 @@ html, body {
 }
 
 body {
-    background: #feffae;
+    background: rgb(245,241,241);
+    background: linear-gradient(360deg, rgba(245,241,241,1) 0%, rgba(246,246,246,1) 100%, rgba(255,255,255,1) 100%);
+    overflow-y: auto;
+}
+
+a {
+    color: #4677ff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+p {
+    font-size: 22px;
+    margin: 5px 25px;
+}
+
+.ws-title {
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 4.2rem;
+}
+
+.ws-result-title {
+    margin-bottom: 20px;
+    font-size: 3.4rem;
+    font-weight: 100;
 }
 
 #personality-traits,
 #needs {
-    margin-right: 10px;
+    margin-right: 25px;
 }
 
 .main-container {
-    margin: 20px;
+    margin: 45px 150px 20px 150px;
 }
 
 .traits-container {
-    margin-top: 20px;
+    margin-top: 25px;
     display: flex;
     justify-content: center;
     /* Use the following so that containers don't stretch */
     align-items: flex-start;
 }
 
-.trait-container {
-    width: 220px;
-    background: white;
+.column-container {
+    width: 280px;
+    border: 1.2px solid #dad3d3;
+    background: #fffbfb;
+    box-shadow: 10px 10px 5px 0px rgba(148, 148, 139, 0.7);
 }
 
 .trait {
     position: relative;
     display: block;
+    font-size: 20px;
+    letter-spacing: 0.6px;
 }
 
 .sub-trait {
     margin-left: 15px;
     display: block;
+}
+
+.column-title {
+    font-size: 22px;
 }
 
 .trait,
@@ -50,10 +86,16 @@ body {
     display: none;
 }
 
-/* .big5-trait {
-    
-} */
+.trait + .trait {
+    margin-top: 10px;
+}
 
 .dropdown:hover {
     cursor: pointer;
 }
+
+.fa-angle-down,
+.fa-angle-up {
+    font-size: 12px;
+}
+

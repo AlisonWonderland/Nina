@@ -9,16 +9,21 @@
 <body>
 
 <div class="main-container">
-    <h1 class="ws-title">Nina's results:</h1>
-    <h2 class="ws-title">SUMMARY</h2>
-    <p> <%= username %> </p>
+    <h1 class="ws-title">Nina's results</h1>
+    <h2 class="ws-result-title"><%= username %>'s Personality Summary:</h2>
     <div class="summary-container">
         <p> <%= summary %> </p>
     </div>
-    <h2 class="ws-title">PERCENTILES</h2>
+    <h2 class="ws-result-title">Personality Percentiles:</h2>
+
+    <p class="disclaimer">
+        Note that the percentiles below represent where the user's traits stand compared to the personalities used in the 
+        <a href="https://cloud.ibm.com/docs/services/personality-insights?topic=personality-insights-numeric">Personality Insights API model.</a> For example, 
+        a user with 80% for "Openness" means that the user is more open than 80% of the people used in the model.
+    </p>
 
     <div class="traits-container">
-        <div class="trait-container" id="personality-traits">
+        <div class="column-container" id="personality-traits">
             <h3 class="column-title">Personality traits</h3>
             <!-- Semicolons matter btw when initializing variables -->
             <% for(let i = 0; i < big5Traits.length; ++i) { %>
@@ -35,7 +40,7 @@
             <% } %>
         </div>
 
-        <div class="trait-container" id="needs">
+        <div class="column-container" id="needs">
             <h3 class="column-title">Needs</h3>
             <% for(let i = 0; i < needs.length; ++i) { %>
                 <div class="trait">
@@ -45,7 +50,7 @@
             <% } %>
         </div>
 
-        <div class="trait-container" id="values">
+        <div class="column-container" id="values">
             <h3 class="column-title">Values</h3>
             <% for(let i = 0; i < values.length; ++i) { %>
                 <div class="trait">
@@ -59,7 +64,6 @@
 </div>
 
 
-<!-- Maybe rename to dropdown -->
 <script src="/results.js"></script>
 </body>
 </html>
