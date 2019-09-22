@@ -25,6 +25,11 @@ p {
     margin: 5px 25px;
 }
 
+#personality-traits,
+#needs {
+    margin-right: 25px;
+}
+
 .ws-title {
     margin-bottom: 20px;
     text-align: center;
@@ -35,11 +40,6 @@ p {
     margin-bottom: 20px;
     font-size: 3.4rem;
     font-weight: 100;
-}
-
-#personality-traits,
-#needs {
-    margin-right: 25px;
 }
 
 .main-container {
@@ -61,18 +61,6 @@ p {
     box-shadow: 10px 10px 5px 0px rgba(148, 148, 139, 0.7);
 }
 
-.trait {
-    position: relative;
-    display: block;
-    font-size: 20px;
-    letter-spacing: 0.6px;
-}
-
-.sub-trait {
-    margin-left: 15px;
-    display: block;
-}
-
 .column-title {
     font-size: 22px;
 }
@@ -82,12 +70,53 @@ p {
     margin-left: 5px;
 }
 
-.hide {
-    display: none;
+.trait {
+    position: relative;
+    display: block;
+    font-size: 20px;
+    letter-spacing: 0.6px;
 }
 
 .trait + .trait {
     margin-top: 10px;
+}
+
+.sub-trait {
+    display: block;
+}
+
+.sub-trait,
+.sub-trait-title {
+    margin-left: 15px;
+}
+
+.percentile-container {
+    margin-bottom: 15px;
+}
+
+.percentile-val {
+    margin: 0px 25px;
+    text-align: right;
+    font-size: 18px;
+}
+
+.circle {
+    position: relative;
+    top: 9px;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: #AA1111;
+}
+
+.line {
+    width: 85%;
+    margin-left: 5%;
+    border-bottom: 2px solid black;
+}
+
+.hide {
+    display: none;
 }
 
 .dropdown:hover {

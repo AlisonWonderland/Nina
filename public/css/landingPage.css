@@ -29,7 +29,6 @@ a:hover {
     margin-top: 10px;
 }
 
-/* // rename to wordcount */
 #word-count-div {
     width: 400px;
     font-size: 1.5rem;
@@ -37,7 +36,7 @@ a:hover {
 }
 
 .main-container {
-    margin: 0px 250px;
+    margin: 25px 250px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -50,7 +49,7 @@ a:hover {
 }
 
 .ws-title {
-    margin-bottom: 30px;
+    margin: 20px 0px;
     font-size: 4.2rem;
 }
 
@@ -70,10 +69,6 @@ a:hover {
 
 .reddit {
     color: #FF5700;
-}
-
-.keyboard {
-
 }
 
 .icon:hover {

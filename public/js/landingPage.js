@@ -3,26 +3,9 @@ const userSearchForm = document.getElementById("user-search-form");
 const inputBox = document.getElementById("user-search-box");
 const personalTextArea = document.getElementById("text-area-container");
 const textarea = document.getElementsByTagName("textarea")[0];
-// rename to wordcount
 const wordCountDiv = document.getElementById("word-count-div");
 const wordCount = document.getElementById("word-count");
 
-
-function wordCounter() {
-    let text = textarea.value;
-
-    if(textarea.value === '') {
-        wordCount.textContent = 0;
-        return;
-    }
-
-    const regex = /\s+/gi;
-    const wordCountVal = text.trim().replace(regex, ' ').split(' ').length;
-
-    wordCount.textContent = wordCountVal;
-}
-
-// Event Listeners:
 
 // Event listeners for wordCounter
 textarea.addEventListener('change', wordCounter);
@@ -49,7 +32,19 @@ for(let i = 0; i < icons.length; ++i) {
     });
 }
 
-// Event Listener helper functions
+function wordCounter() {
+    let text = textarea.value;
+
+    if(textarea.value === '') {
+        wordCount.textContent = 0;
+        return;
+    }
+
+    const regex = /\s+/gi;
+    const wordCountVal = text.trim().replace(regex, ' ').split(' ').length;
+
+    wordCount.textContent = wordCountVal;
+}
 
 function editForm(websiteName) {
     userSearchForm.action = `/results/${websiteName}`;

@@ -14,22 +14,19 @@ TEXTAREA INPUT -->
 <!-- * Print out the names of the big5 traits. -->
 <!-- * then worry about add the little traits. Maybe use an array with "one", "two"... -->
 <!-- * Add functionality to dropdowns in results -->
-* Add percentage bars and order by percentages
+<!-- * Add percentage bars and order by percentages -->
 * Play with the limits for tweets and comments and check watson results in command line
 <!-- * For the profile page create an object in the routes and then send that object to results.ejs -->
 <!-- * Look at watson sample page and Test the analysis page with reddit results first. -->
 <!-- * Find ibm node package, use it. -->
 * add error handling for: user not found, etc. Maybe just print out the error message. Need twitter(invalid username) and watson(no comments)
 * Styles.
-<!-- * Responsiveness. sockets??? Probably not. -->
+* Responsiveness with window shrinkage. Issue with the percentage lines, has to do with display flex. Remove at a window size or google the issue
 <!-- * rename routes -->
-* add a footer linking to the source code/github
+<!-- * add a footer linking to the source code/github -->
 
 ## Notes 
 
-
-### Todo later 
-<!-- * Get new background color for landing -->
 ### Refactoring ideas.
 
 

@@ -10,7 +10,13 @@
 
 <div class="main-container">
     <h1 class="ws-title">Nina's results</h1>
-    <h2 class="ws-result-title"><%= username %>'s Personality Summary:</h2>
+    <h2 class="ws-result-title">
+        <% if(username === "") { %>
+            <%= "Personality Summary:" %>
+        <% } else { %>
+            <%= username + "'s Personality Summary:" %>
+        <% } %>
+    </h2>
     <div class="summary-container">
         <p> <%= summary %> </p>
     </div>
@@ -25,16 +31,24 @@
     <div class="traits-container">
         <div class="column-container" id="personality-traits">
             <h3 class="column-title">Personality traits</h3>
-            <!-- Semicolons matter btw when initializing variables -->
             <% for(let i = 0; i < big5Traits.length; ++i) { %>
                 <div class="trait big5-trait">
                     <div class="dropdown"> <%= big5Traits[i].name %> <i class="fas fa-angle-down"></i> </div>
+                    <div class="percentile-val"> <%= big5Traits[i].percentile %> % </div>
+                    <div class="percentile-container">
+                        <div class="circle"></div>
+                        <div class="line"></div>
+                    </div>
                     <div class="sub-trait hide">
                         <% for(let j = 0; j < big5Traits[i].children.length; ++j) { %>
-                            <div> <%= big5Traits[i].children[j].name %> </div>
+                            <div class="sub-trait-title"> <%= big5Traits[i].children[j].name %> </div>
+                            <div class="percentile-val"> <%= big5Traits[i].children[j].percentile %> % </div>
+                            <div class="percentile-container">
+                                <div class="circle"></div>
+                                <div class="line"></div>
+                            </div>
                         <% } %>
                     </div>
-                    <!-- maybe get rid of last hr -->
                     <hr>
                 </div>
             <% } %>
@@ -45,6 +59,11 @@
             <% for(let i = 0; i < needs.length; ++i) { %>
                 <div class="trait">
                     <div> <%= needs[i].name %> </div>
+                    <div class="percentile-val"> <%= needs[i].percentile %> % </div>
+                    <div class="percentile-container">
+                        <div class="circle"></div>
+                        <div class="line"></div>
+                    </div>
                     <hr>
                 </div>
             <% } %>
@@ -55,6 +74,11 @@
             <% for(let i = 0; i < values.length; ++i) { %>
                 <div class="trait">
                     <div> <%= values[i].name %> </div>
+                    <div class="percentile-val"> <%= values[i].percentile %> % </div>
+                    <div class="percentile-container">
+                        <div class="circle"></div>
+                        <div class="line"></div>
+                    </div>
                     <hr>
                 </div>
             <% } %>
@@ -65,5 +89,54 @@
 
 
 <script src="/results.js"></script>
+<script>
+    // Unhiding the subtraits to be able to access their width
+    const subTraits = document.getElementsByClassName("sub-trait");
+    for(let i = 0; i < subTraits.length; ++i) {
+        subTraits[i].classList.toggle("hide");
+    }
+
+    const circles = document.getElementsByClassName("circle");
+    const lines = document.getElementsByClassName("line");
+    const bigFiveTraits = <%-JSON.stringify(big5Traits)%>;
+    const values = <%-JSON.stringify(values)%>;
+    const needs = <%-JSON.stringify(needs)%>;
+    let percentileLineIndex = 0;
+
+    percentileLinesInit();
+
+    for(let i = 0; i < subTraits.length; ++i) {
+        subTraits[i].classList.toggle("hide");
+    }
+
+    function percentileLinesInit() {
+        for(let i = 0; i < bigFiveTraits.length; ++i) {
+            moveCircleToPosition(circles[percentileLineIndex], lines[percentileLineIndex], bigFiveTraits[i].percentile);
+            for(let j = 0; j <  bigFiveTraits[i].children.length; ++j) {
+                ++percentileLineIndex;
+                moveCircleToPosition(circles[percentileLineIndex], lines[percentileLineIndex], bigFiveTraits[i].children[j].percentile);
+            }
+            ++percentileLineIndex;
+        }
+
+        for(let i = 0; i < needs.length; ++i) {
+            moveCircleToPosition(circles[percentileLineIndex], lines[percentileLineIndex], needs[i].percentile);
+            ++percentileLineIndex;
+        }
+
+        for(let i = 0; i < values.length; ++i) {
+            moveCircleToPosition(circles[percentileLineIndex], lines[percentileLineIndex], values[i].percentile);
+            ++percentileLineIndex;
+        }
+    }
+    
+    function moveCircleToPosition(circle, line, percentileVal) {
+        const lineStyles = line.currentStyle || window.getComputedStyle(line);
+        const circleWidth = circle.clientWidth; // variable could be deleted
+        const lineMarginLeft = parseInt(lineStyles.marginLeft);
+        const circlePosition = (line.clientWidth * (percentileVal / 100)) + lineMarginLeft - (circleWidth / 2);
+        circle.style.transform = "translateX(" + circlePosition + "px)";
+    }
+</script>
 </body>
 </html>

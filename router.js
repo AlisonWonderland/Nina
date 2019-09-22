@@ -9,6 +9,129 @@ module.exports = (app) => {
         res.render('landingPage');
     });   
 
+    app.get('/results', (req, res) => {
+        const big5 = [
+            {
+                name: 'First',
+                percentile: 98.23,
+                children: [
+                    {
+                        percentile: 98.10,
+                        name: 'one'
+                    },
+                    {
+                        percentile: 92.23,
+                        name: 'two'
+                    }
+                ]
+            },
+            {
+                name: 'Second',
+                percentile: 91.25,
+                children: [
+                    {
+                        percentile: 98.10,
+                        name: 'one'
+                    },
+                    {
+                        percentile: 92.23,
+                        name: 'two'
+                    }
+                ]
+            },
+            {
+                name: 'Third',
+                percentile: 81.76,
+                children: [
+                    {
+                        percentile: 98.10,
+                        name: 'one'
+                    },
+                    {
+                        percentile: 92.23,
+                        name: 'two'
+                    }
+                ]
+            },
+            {
+                name: 'Fourth',
+                percentile: 60.21,
+                children: [
+                    {
+                        percentile: 98.10,
+                        name: 'one'
+                    },
+                    {
+                        percentile: 92.23,
+                        name: 'two'
+                    }
+                ]
+            },
+            {
+                name: 'Fifth',
+                percentile: 40.01,
+                children: [
+                    {
+                        percentile: 98.10,
+                        name: 'one'
+                    },
+                    {
+                        percentile: 92.23,
+                        name: 'two'
+                    }
+                ]
+            }
+        ];
+    
+        const needs = [
+            {
+                percentile: 98.10,
+                name: 'needs1'
+            },
+            {
+                percentile: 92.23,
+                name: 'needs2'
+            },
+            {
+                percentile: 78.23,
+                name: 'needs3'
+            },
+            {
+                percentile: 54.12,
+                name: 'needs4'
+            },
+            {
+                percentile: 31.21,
+                name: 'needs5'
+            }
+        ]
+    
+        const values = [
+            {
+                percentile: 98.10,
+                name: 'values1'
+            },
+            {
+                percentile: 92.23,
+                name: 'values2'
+            },
+            {
+                percentile: 78.23,
+                name: 'values3'
+            },
+            {
+                percentile: 54.12,
+                name: 'values4'
+            },
+            {
+                percentile: 31.21,
+                name: 'values5'
+            }
+        ]
+    
+        res.render('results', {username: 'tset', summary: 'Summary', big5Traits: big5, needs: needs, values: values})
+    })
+
     app.post('/results/reddit', redditorAnalysis);
 
     app.post('/results/twitter', (req,res) => {
@@ -18,10 +141,12 @@ module.exports = (app) => {
         res.redirect('/');
     })
 
-    app.post('/results/personal-text', (req,res) => {
+    // Move anon function to a separate function.
+    app.post('/results/personal-text', async (req,res) => {
         const usertext = req.body.usertext;
-        // watson.createPortrait(usertext);
-        res.send(usertext);
+        // following two lines can be placed in a new function
+        const personalityPortrait = await watson.createPortrait(usertext, "");
+        res.render('results', personalityPortrait);
     });
 
     app.get('/*', (req, res) => {
@@ -29,6 +154,7 @@ module.exports = (app) => {
     })
 }
 
+// Could be put in another file or even watson-helper
 async function redditorAnalysis(req, res) {
     const username = req.body.user_search;
     const comments = await reddit.getRedditComments(username);

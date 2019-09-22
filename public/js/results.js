@@ -2,8 +2,6 @@ const dropdown = document.getElementsByClassName('dropdown');
 const big5Traits = document.getElementsByClassName('big5-trait');
 const iTag = document.getElementsByTagName('i');
 
-// FLIP ARROWS AROUND WHEN CLICKED <i class="fas fa-angle-up"></i>. get i tag and remove
-// fa-angle-up and add fa-angle-down. and vice versa
 
 for(let i = 0; i < dropdown.length; ++i) {
     dropdown[i].addEventListener('click', () => {

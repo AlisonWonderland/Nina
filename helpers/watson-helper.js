@@ -7,14 +7,12 @@ const v3EnglishTextSummaries = new PersonalityTextSummaries({ locale: 'en', vers
 
 
 /* SUGGESTIONS:
-    Round percentile to whole numbers/ w/o the decimal.Math.round(..percentile * 100);
     Use one format and one sort function
 */
-
 function formatNeedsOrValues(profile, characteristic) {
     const charTraits = profile[characteristic];
     for(let i = 0; i < charTraits.length; ++i) {
-        charTraits[i].percentile = Math.round(charTraits[i].percentile * 10000) / 100;
+        charTraits[i].percentile = Math.round(charTraits[i].percentile * 100);
     }
 
     return charTraits;
@@ -36,11 +34,11 @@ function sortNeedsOrValues(charTraits) {
 
 function formatTraits(big5Traits) {
     for(let i = 0; i < big5Traits.length; ++i) {
-        big5Traits[i].percentile = Math.round(big5Traits[i].percentile * 10000) / 100;
+        big5Traits[i].percentile = Math.round(big5Traits[i].percentile * 100);
         let children = big5Traits[i].children;
 
         for(let j = 0; j < children.length; ++j) {
-            children[j].percentile = Math.round(children[j].percentile * 10000) / 100;
+            children[j].percentile = Math.round(children[j].percentile * 100);
         }
     }
 
