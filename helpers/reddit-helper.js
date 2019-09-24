@@ -1,6 +1,5 @@
 const snoowrap = require('snoowrap');
 const fetch = require('node-fetch');
-
 const config = require('../config');
 
 const REDDIT_ACCESS_TOKEN_URL = 'https://www.reddit.com/api/v1/access_token';
@@ -20,10 +19,9 @@ async function getRedditAccessToken() {
     }).then(response => {
         return response.json();
     }).catch(error => {
-        res.send(error)
+        res.send(error);
     })
 
-    // Could return just tokenData.access_token. But, this is useful for checking expiration.
     return tokenData;
 }
 
@@ -40,8 +38,7 @@ async function createSnoowrap() {
 async function getRedditComments(username) {
     let snoo = await createSnoowrap();
 
-    // think about the limit
-    return snoo.getUser(username).getComments({limit: 100})
+    return snoo.getUser(username).getComments({limit: 150})
         .then(commentsList => {
             let comments = "";
             for(let i = 0; i < commentsList.length; ++i) {

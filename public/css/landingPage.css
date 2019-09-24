@@ -8,7 +8,6 @@ html, body {
 body {
     background: rgb(245,241,241);
     background: linear-gradient(360deg, rgba(245,241,241,1) 0%, rgba(246,246,246,1) 100%, rgba(255,255,255,1) 100%);
-
 }
 
 a {
@@ -36,7 +35,7 @@ a:hover {
 }
 
 .main-container {
-    margin: 25px 250px;
+    margin: 25px 250px 25px 250px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -78,3 +77,5 @@ a:hover {
 .hide {
     display: none;
 }
+
+::-webkit-scrollbar { width: 0 !important }

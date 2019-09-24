@@ -15,23 +15,19 @@ TEXTAREA INPUT -->
 <!-- * then worry about add the little traits. Maybe use an array with "one", "two"... -->
 <!-- * Add functionality to dropdowns in results -->
 <!-- * Add percentage bars and order by percentages -->
-* Play with the limits for tweets and comments and check watson results in command line
+<!-- * Play with the limits for tweets and comments and check watson results in command line -->
 <!-- * For the profile page create an object in the routes and then send that object to results.ejs -->
 <!-- * Look at watson sample page and Test the analysis page with reddit results first. -->
 <!-- * Find ibm node package, use it. -->
-* add error handling for: user not found, etc. Maybe just print out the error message. Need twitter(invalid username) and watson(no comments)
-* Styles.
+<!-- * add error handling for: user not found, etc. Maybe just print out the error message. Need twitter(invalid username) and watson(no comments) -->
+* Styles to landing page text box and buttons.
 * Responsiveness with window shrinkage. Issue with the percentage lines, has to do with display flex. Remove at a window size or google the issue
 <!-- * rename routes -->
 <!-- * add a footer linking to the source code/github -->
 
-## Notes 
-
-### Refactoring ideas.
-
-
-## Acroynms I used
-'ws' means website
-
 ## What I learned
 * Error handling for async functions. You have to catch the errors otherwise you'll get errors wrapped in a promise.
+* Working with different modules to access API's
+* How to correctly set up application only Oauth with the Reddit API
+* Folder structure for node.js projects.
+* Using gitignore
