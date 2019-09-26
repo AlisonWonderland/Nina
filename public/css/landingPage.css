@@ -19,6 +19,83 @@ a:hover {
     text-decoration: underline;
 }
 
+input[type=text] {
+    height: 40px;
+    width: 220px;
+    border: 1px solid black;
+    background: linear-gradient(to left, #222222 50%, #4E4E4E 50%);
+    background-size: 200% 100%;
+    background-position:right bottom;
+    color: white;
+    font-size: 1.2rem;
+    font-family: inherit;
+    transition:all .5s ease;
+}
+
+input[type=text]:focus {
+    background-position:left bottom;
+}
+
+input::placeholder { 
+    color: #C2CAC1;
+    opacity: 1;
+}
+
+input:focus::-webkit-input-placeholder {
+    color: white;
+    opacity: 1;
+}
+
+input[type=submit] {
+    height: 30px;
+    text-align: center;
+    border-radius: 0px;
+    background: #fff;
+    border: 2px solid black;
+    color: black;
+    letter-spacing:1px;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: all 0.25s ease;
+}
+
+input[type=submit]:hover {
+    cursor: pointer;
+    color:white;
+    background: #4677ff;
+}
+
+input[type=submit]:active {
+    letter-spacing: 2px;
+    letter-spacing: 2px ;
+}
+
+textarea {
+    border: 1px solid black;
+    background: #222222;
+    color: white;
+    font-size: 1.2rem;
+    font-family: inherit;
+    transition:all .5s ease;
+}
+
+textarea::placeholder { 
+    color: #C2CAC1;
+    opacity: 1;
+}
+
+textarea:focus::-webkit-input-placeholder {
+    color: white;
+    opacity: 1;
+}
+
+#pt-btn:disabled{
+    cursor: not-allowed;
+    border: 1px solid #999999;
+    background-color: #cccccc;
+    color: #666666;
+}
+
 #brain-pic {
     width: 125px;
     height: 125px;
@@ -58,6 +135,12 @@ a:hover {
     font-size: 2rem;
 }
 
+.center-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .icon {
     font-size: 4.5rem;
 }
@@ -77,5 +160,3 @@ a:hover {
 .hide {
     display: none;
 }
-
-::-webkit-scrollbar { width: 0 !important }

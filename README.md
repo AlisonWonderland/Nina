@@ -1,5 +1,10 @@
 # Nina
+Nina is a Node.js website where you can analyze the online personality of a person. To get started you can select a website or you can choose to write something. After submitting the username or text, you will then be presented with the results page. The results page will present a personality summary and will present the ordered personality percentiles.
 
+## APIs used 
+* [Watson Personality Insights](https://www.ibm.com/watson/services/personality-insights/)
+* [Reddit](https://github.com/reddit-archive/reddit/wiki/api)
+* [Twitter](https://developer.twitter.com/en/docs)
 
 ## Todo 
 <!-- * Add submit button for text box -->
@@ -20,10 +25,15 @@ TEXTAREA INPUT -->
 <!-- * Look at watson sample page and Test the analysis page with reddit results first. -->
 <!-- * Find ibm node package, use it. -->
 <!-- * add error handling for: user not found, etc. Maybe just print out the error message. Need twitter(invalid username) and watson(no comments) -->
-* Styles to landing page text box and buttons.
+<!-- * Styles to landing page text box and buttons. -->
 * Responsiveness with window shrinkage. Issue with the percentage lines, has to do with display flex. Remove at a window size or google the issue
+* Write 'complete' readme
+* Load to netlify
 <!-- * rename routes -->
 <!-- * add a footer linking to the source code/github -->
+
+## Features ideas
+* Add the ability to combine and compare the personality's of people. Whether its comparing one person's personality on a commbination of websites or comparing multiple people on the same platform.
 
 ## What I learned
 * Error handling for async functions. You have to catch the errors otherwise you'll get errors wrapped in a promise.

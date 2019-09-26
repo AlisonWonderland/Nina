@@ -25,9 +25,7 @@ for(let i = 0; i < icons.length; ++i) {
             editForm("twitter");
         }
         else if(this.classList.contains("keyboard")) {
-            userSearchForm.classList.add("hide");
-            wordCountDiv.classList.remove("hide");
-            textareaContainer.classList.remove("hide");
+            editForm("keyboard");
             wordCounter();
         }
     });
@@ -44,20 +42,29 @@ function wordCounter() {
     const regex = /\s+/gi;
     const wordCountVal = text.trim().replace(regex, ' ').split(' ').length;
     wordCountSpan.textContent = wordCountVal;
-    
+
     if(wordCountVal < 100) {
         ptSubmitBtn.disabled = true;
     }
-
     else {
         ptSubmitBtn.disabled = false;
     }
 }
 
-function editForm(websiteName) {
-    userSearchForm.action = `/results/${websiteName}`;
-    inputBox.placeholder = `Enter a ${websiteName} username`;
-    textareaContainer.classList.add("hide");
-    wordCountDiv.classList.add("hide");
-    userSearchForm.classList.remove("hide");
+function editForm(iconName) {
+    if(iconName === "twitter" || iconName === "reddit") {
+        userSearchForm.action = `/results/${iconName}`;
+        inputBox.placeholder = `Enter a ${iconName} username`;
+        textareaContainer.classList.add("hide");
+        wordCountDiv.classList.add("hide");
+        userSearchForm.classList.remove("hide");
+        userSearchForm.classList.add("center-column");
+    }
+
+    else {
+        textareaContainer.classList.remove("hide");
+        wordCountDiv.classList.remove("hide");
+        userSearchForm.classList.add("hide");
+        textareaContainer.classList.add("center-column");
+    }
 }
